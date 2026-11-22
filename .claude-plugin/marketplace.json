@@ -1,0 +1,14 @@
+{
+  "name": "github-assistant-marketplace",
+  "owner": {
+    "name": "Specjalista"
+  },
+  "plugins": [
+    {
+      "name": "github-assistant",
+      "description": "GitHub workflow assistant for Claude Code: automated PRs, code reviews, issue triage, and CI diagnostics",
+      "version": "0.1.0",
+      "source": "./"
+    }
+  ]
+}

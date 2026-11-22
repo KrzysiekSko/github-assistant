@@ -1,0 +1,21 @@
+# Node & build
+node_modules/
+dist/
+build/
+*.log
+log.txt
+
+# Environment & local credentials
+.env
+.env.local
+*.local
+credentials.json
+
+# Claude local settings & temp
+.claude/settings.local.json
+.claude/worktrees/
+
+# OS specific
+Thumbs.db
+.DS_Store
+Desktop.ini
