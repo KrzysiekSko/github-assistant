@@ -45,9 +45,13 @@ $env:CLAUDE_CODE_PLUGIN_DIRS = "C:\Projekty\NaszProjektAgentowy"
 ```
 
 ### Method 2: Via GitHub Marketplace
-Once pushed to a GitHub repository (`<owner>/<repo>`), install it across your team with:
+Install directly in any Claude Code session via the repository marketplace:
 ```powershell
-claude plugin install github-assistant --marketplace <owner>/<repo>
+claude plugin install github-assistant --marketplace KrzysiekSko/github-assistant
+```
+Or use the slash command inside Claude Code:
+```
+/plugin install github-assistant --marketplace KrzysiekSko/github-assistant
 ```
 
 ---
