@@ -1,13 +1,13 @@
 ---
 name: github-triage
-description: Systematically triage, reproduce, investigate root causes, and structure GitHub issues into actionable implementation tasks.
+description: Systematically triage, reproduce, investigate root causes, and execute end-to-end implementation workflows from GitHub issues.
 metadata:
   type: project
 ---
 
-# GitHub Issue Triage Skill
+# GitHub Issue Triage & Implementation Skill
 
-This skill guides bug reproduction, issue investigation, labeling, and implementation planning.
+This skill guides bug reproduction, issue investigation, root cause diagnosis, and automated end-to-end implementation from issue to pull request.
 
 ## Triage Procedure
 
@@ -24,11 +24,14 @@ This skill guides bug reproduction, issue investigation, labeling, and implement
 - If possible, formulate a failing test case that demonstrates the bug.
 - Check git blame/history (`git log -S "<symbol>"`) to determine when and why the behavior changed.
 
-### Step 4: Formulate the Resolution Plan
-- Define the minimal, cleanest fix that solves the problem without breaking existing behavior.
-- Determine required test cases to prevent regression.
-- Estimate impact across dependent modules or API clients.
-
-### Step 5: Document and Link
-- When opening a PR to resolve the issue, include `Fixes #<issue_number>` or `Closes #<issue_number>` in the PR body.
-- This ensures GitHub automatically closes the issue upon merging.
+### Step 4: End-to-End Implementation Workflow
+Execute full transition from issue to pull request:
+1. **Branch Checkout**:
+   - Create and check out a dedicated branch: `git checkout -b fix/issue-<number>-<slug>` (or `feat/...`).
+2. **Apply Minimal Fix**:
+   - Make the targeted fix following the repository's architecture and coding standards.
+3. **Add Regression Test**:
+   - Add a unit or integration test proving the bug is fixed and cannot regress.
+4. **Pull Request Automation**:
+   - Commit with Conventional Commits referencing the issue.
+   - Push and open a PR with `Closes #<issue_number>` in the body so GitHub automatically closes the issue upon merge.

@@ -1,11 +1,11 @@
 ---
-description: Create, search, list, or triage GitHub issues
-argument-description: "[create | list | search | triage] [query | issue_number]"
+description: Create, search, list, triage, or implement GitHub issues
+argument-description: "[create | list | search | triage | implement] [query | issue_number]"
 ---
 
 # Issue Management Command (`/issue`)
 
-Manage GitHub issues, triage bugs, and link tasks to code locations.
+Manage GitHub issues, triage bugs, link tasks to code locations, and execute automated implementation workflows.
 
 ## Actions
 
@@ -25,7 +25,21 @@ Manage GitHub issues, triage bugs, and link tasks to code locations.
   - **Proposed Fix Steps**: Ordered action items to resolve the issue.
   - **Test Plan**: How to reproduce and verify the fix.
 
-### 3. Create Issue (`/issue create`)
+### 3. Implement Issue End-to-End (`/issue implement <issue_number>`)
+Automates the full flow from issue specification to ready PR:
+1. **Fetch & Analyze**:
+   - Inspect issue details and acceptance criteria (`gh issue view <issue_number>`).
+   - Extract title slug and issue type (bug vs feature).
+2. **Branch Creation**:
+   - Create and check out a dedicated branch: `git checkout -b fix/issue-<issue_number>-<slug>` (or `feat/...`).
+3. **Implementation & Test**:
+   - Apply minimal effective code changes matching acceptance criteria.
+   - Run local test suite to confirm regression and fix.
+4. **Pull Request Drafting**:
+   - Stage and commit changes using Conventional Commits.
+   - Push branch and create PR automatically referencing `Closes #<issue_number>` or `Fixes #<issue_number>`.
+
+### 4. Create Issue (`/issue create`)
 - Check for issue templates in `.github/ISSUE_TEMPLATE/` (e.g., `bug_report.md`, `feature_request.md`).
 - Prompt user for title and key details if not provided in arguments.
 - Format body using standard template sections:
