@@ -6,8 +6,8 @@
   "plugins": [
     {
       "name": "github-assistant",
-      "description": "GitHub workflow assistant for Claude Code: automated PRs, code reviews, issue triage, and CI diagnostics",
-      "version": "0.2.0",
+      "description": "GitHub workflow assistant for Claude Code: automated PRs with preflight checks, Board-of-3 reviews, issue triage & implementation, and CI diagnostics",
+      "version": "0.3.0",
       "source": "./"
     }
   ]

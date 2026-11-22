@@ -1,13 +1,13 @@
 ---
 name: github-review
-description: Comprehensive code review across correctness, security, performance, and architecture with actionable inline suggestions.
+description: Comprehensive code review across correctness, security, performance, architecture, and Board-of-3 audit.
 metadata:
   type: project
 ---
 
 # GitHub Code Review Skill
 
-This skill delivers rigorous, constructive, and actionable code reviews on pull requests and git diffs.
+This skill delivers rigorous, constructive, and actionable code reviews on pull requests and git diffs, including standard multi-dimensional analysis and the Board-of-3 audit methodology.
 
 ## Review Principles
 
@@ -21,7 +21,19 @@ This skill delivers rigorous, constructive, and actionable code reviews on pull 
    - **Nit**: Optional improvements, readability tweaks, non-blocking cleanups.
    - **Pre-existing**: Bugs found in surrounding code that were not introduced by this PR (file a separate issue/task).
 
-## Review Checklist
+## Board-of-3 Audit Methodology
+
+For high-impact, infrastructure, or critical path changes, execute a three-auditor deliberation:
+1. **Auditor 1: Security & Compliance**:
+   - Checks: Injection vulnerabilities, secret scanner patterns, authorization boundaries, safe defaults.
+2. **Auditor 2: Reliability & Concurrency**:
+   - Checks: Deadlocks, timeout handling, race conditions, fail-closed design, crash loops, rollback readiness.
+3. **Auditor 3: Architecture & Scope**:
+   - Checks: Minimal diff integrity (no scope creep), DRY vs over-abstraction, backward compatibility, documentation parity.
+
+Consolidate into an explicit verdict: `PASS`, `CONCERNS`, or `BLOCKER`.
+
+## Standard Review Checklist
 
 ### 1. Correctness & Resilience
 - [ ] Boundary conditions: empty arrays, 0, null, negative numbers, very large strings.

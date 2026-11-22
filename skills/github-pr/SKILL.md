@@ -1,13 +1,13 @@
 ---
 name: github-pr
-description: End-to-end pull request management: drafting conventional commit messages, formatting PR descriptions from templates, verifying CI checks, and executing merges.
+description: End-to-end pull request management: drafting conventional commit messages, preflight sanitization, PR templates, CI verification, and merging.
 metadata:
   type: project
 ---
 
 # GitHub Pull Request Workflow Skill
 
-This skill guides automated, high-quality Pull Request creation and maintenance.
+This skill guides automated, high-quality Pull Request creation, preflight sanitization, and lifecycle maintenance.
 
 ## Best Practices
 
@@ -48,8 +48,10 @@ Visual evidence for UI changes.
 ```
 
 ### 3. Pre-flight Checklist Before Creating PR
-1. Ensure all local changes are committed or stashed.
-2. Run local tests and linters to prevent immediate CI failures.
-3. Push branch to remote with upstream tracking: `git push -u origin <branch-name>`.
-4. Check if a repository template exists in `.github/PULL_REQUEST_TEMPLATE/` or `.github/pull_request_template.md`.
-5. Create PR via `gh pr create` or GitHub MCP server tools.
+1. **Uncommitted Changes:** Ensure all local changes are committed or stashed (`git status`).
+2. **Local Tests & Linters:** Run test suite and linters to prevent immediate CI failures.
+3. **Secret Scanner Preflight:** Check staged diff for mock keys or regex triggers matching Gitleaks heuristics (`sk-`, `Authorization: Bearer`, DPAPI Base64).
+4. **Cross-Platform Hygiene:** Check line endings (ensure LF on `.sh`, `.yml`, Dockerfiles) and verify no hardcoded machine paths exist in diff.
+5. **Push with Upstream:** Push branch to remote with upstream tracking: `git push -u origin <branch-name>`.
+6. **Template Discovery:** Adhere to `.github/PULL_REQUEST_TEMPLATE.md` if present.
+7. **Create PR:** Create PR via `gh pr create` or GitHub MCP server tools.
