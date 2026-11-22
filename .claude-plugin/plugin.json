@@ -1,6 +1,6 @@
 {
   "name": "github-assistant",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Comprehensive GitHub workflow assistant for Claude Code: automated PR creation, multi-dimensional code reviews, issue triage, and CI/CD diagnostics.",
   "author": {
     "name": "Specjalista"

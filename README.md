@@ -29,6 +29,12 @@
   - Downloads and parses failed step logs to extract stack traces.
   - Recommends exact fixes for CI-specific errors (matrix mismatches, lockfile issues, environment differences).
 
+- **Release Management (`/release`)**:
+  - Generates a changelog from Conventional Commits since the last tag.
+  - Suggests and applies semantic version bumps (patch / minor / major).
+  - Creates git tags and GitHub releases (optionally as draft).
+  - Opens a pre-release PR for review via `/release pr`.
+
 ---
 
 ## Installation
@@ -64,6 +70,7 @@ Or use the slash command inside Claude Code:
 | `/review` | `[pr_number \| branch] [--fix] [--comment]` | Review diffs, PRs, or local changes |
 | `/issue` | `[create \| list \| search \| triage]` | Manage and triage GitHub issues |
 | `/ci` | `[status \| view \| diagnose \| rerun]` | Monitor and debug GitHub Actions CI runs |
+| `/release` | `[changelog \| bump \| tag \| create \| pr]` | Prepare and create GitHub releases |
 
 ---
 
@@ -73,6 +80,7 @@ Or use the slash command inside Claude Code:
 - **`github-review`**: Multi-dimensional code review checklists (correctness, security, performance).
 - **`github-triage`**: Systematic bug reproduction and issue resolution workflows.
 - **`github-ci`**: CI failure log extraction, stack trace parsing, and troubleshooting.
+- **`github-release`**: Release management from Conventional Commits — changelog, semantic version bump, tagging, and GitHub release creation.
 
 ---
 
